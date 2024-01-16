@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import requests
 from dotenv import load_dotenv
 import os
@@ -7,6 +8,16 @@ load_dotenv()
 
 app = FastAPI()
 
+# Allow all domains to access API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"], 
+)
+
+# Get Information from Open Weather
 @app.get("/weather")
 def get_weather(city: str):
     api_key = os.getenv("OPENWEATHERMAP_API_KEY")
