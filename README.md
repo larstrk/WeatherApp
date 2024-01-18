@@ -50,11 +50,3 @@ This is a simple project implementing a weather app with a FastAPI backend and a
 ## Usage
 
 Open your browser and go to `http://localhost:3000` to use the weather app. Enter the name of a city to display the current weather.
-
-## Contributing
-
-Contributions, bug reports, and feature requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
