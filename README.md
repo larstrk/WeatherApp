@@ -2,6 +2,8 @@
 
 This is a simple project implementing a weather app with a FastAPI backend and a React frontend. The app fetches weather data using the OpenWeatherMap API and displays it.
 
+<img width="1440" alt="Screenshot 2024-01-18 at 23 12 11" src="https://github.com/larstrk/WeatherApp/assets/127292505/bd267edf-321f-43b2-9805-17b2f2a87494">
+
 ## Technologies
 
 - Backend: FastAPI
