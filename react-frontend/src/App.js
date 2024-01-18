@@ -10,16 +10,18 @@ function App() {
   const kelvinToCelsius = (kelvin) => (kelvin - 273.15).toFixed(2);
 
   const fetchWeather = async () => {
-    setError(null); // Setze den Fehler zurück, wenn eine neue Anfrage gestartet wird
     try {
       const response = await axios.get(`http://localhost:8000/weather?city=${city}`);
+      if (response.data.cod && response.data.cod !== 200) {
+        throw new Error(response.data.message);
+      }
       setWeather(response.data);
+      setError(null); // Fehler zurücksetzen, falls vorher einer vorhanden war
     } catch (error) {
-      // Setze die Fehlermeldung basierend auf dem Fehler, der aufgetreten ist
-      setError("Ein Fehler ist aufgetreten. Bitte überprüfe die Eingabe und versuche es erneut.");
+      setError(error.message || "Ein unerwarteter Fehler ist aufgetreten.");
       setWeather(null); // Setze das Wetter zurück, falls vorher Daten geladen wurden
-    }
-  };
+    };
+  }
 
   return (
     <div className="App">
